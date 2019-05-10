@@ -1,0 +1,12 @@
+@import './_colors';
+@import './_sizes';
+/* Blocks (containers) decorations */
+$container-box-shadow: 0 0.05rem 0.2rem 0 #dbdbe6;
+
+%cinema-container {
+	background-color: $white;
+	border-radius: 0.15rem;
+	box-shadow: $container-box-shadow;
+	box-sizing: border-box;
+	padding: 1rem;
+}

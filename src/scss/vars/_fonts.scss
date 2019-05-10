@@ -1,0 +1,129 @@
+@import './colors';
+
+$advanced-kpi-card-value: 300 1.7rem Roboto, sans-serif;
+$h3: 100 3rem Roboto, sans-serif;
+$h4: 300 2.1rem Roboto, sans-serif;
+$h5: 300 1.5rem Roboto, sans-serif;
+$h6: 300 1.25rem Roboto, sans-serif;
+$kpi-value: 300 1.6rem Roboto, sans-serif;
+$subtitle1: 400 1rem Roboto, sans-serif;
+$subtitle2: 500 0.9rem Roboto, sans-serif;
+$card-title: 500 0.8rem Roboto, sans-serif;
+$card-title-height: 1.5rem;
+$body1: 500 1rem Roboto, sans-serif;
+$body2: 400 0.9rem Roboto, sans-serif;
+$caption: 400 0.75rem Roboto, sans-serif;
+$overline: 300 0.65rem Roboto, sans-serif;
+$navigation1: 400 1rem Roboto, sans-serif;
+$navigation2: 400 0.8rem Roboto, sans-serif;
+$navigation3-size: 0.85rem;
+$navigation3: 400 $navigation3-size Roboto, sans-serif;
+
+/* Typefase colors */
+$h3-color: $black;
+$h4-color: $black;
+$h5-color: $blue;
+$h6-color: $blue;
+$subtitle1-color: $dark-blue;
+$subtitle2-color: $dark-blue;
+$body1-color: $dark-gray;
+$body2-color: $black;
+$caption-color: $dark-gray;
+$overline-color: $dark-gray;
+$navigation1-color: $black;
+$navigation2-color: $black;
+$navigation3-color: $dark-blue;
+
+@mixin font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+%h3 {
+	color: $h3-color;
+	font: $h3;
+}
+
+%h4 {
+	color: $h4-color;
+	font: $h4;
+}
+
+%h5 {
+	color: $h5-color;
+	font: $h5;
+}
+
+%h6 {
+	color: $h6-color;
+	font: $h6;
+}
+
+%subtitle1 {
+	@include font-smoothing();
+	color: $subtitle1-color;
+	font: $subtitle1;
+}
+
+%subtitle2 {
+	@include font-smoothing();
+	color: $subtitle2-color;
+	font: $subtitle2;
+}
+
+%card-title {
+	@include font-smoothing();
+	box-sizing: border-box;
+	color: $dark-gray;
+	font: $card-title;
+	height: $card-title-height;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 0.25rem 0.25rem 0;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+%body1 {
+	@include font-smoothing();
+	color: $body1-color;
+	font: $body1;
+}
+
+%body2 {
+	@include font-smoothing();
+	color: $body2-color;
+	font: $body2;
+}
+
+%caption {
+	@include font-smoothing();
+	color: $caption-color;
+	font: $caption;
+}
+
+%overline {
+	@include font-smoothing();
+	color: $overline-color;
+	font: $overline;
+	text-transform: uppercase;
+}
+
+%navigation1 {
+	@include font-smoothing();
+	color: $navigation1-color;
+	font: $navigation1;
+}
+
+%navigation2 {
+	@include font-smoothing();
+	color: $navigation2-color;
+	font: $navigation2;
+}
+
+%navigation3 {
+	@include font-smoothing();
+	color: $navigation3-color;
+	font: $navigation3;
+}

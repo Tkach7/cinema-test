@@ -1,0 +1,11 @@
+@import "../../../scss/vars/sizes";
+@import "../../../scss/vars/decorations";
+
+:host {
+  display: block;
+  height: 100%;
+  .schedule-container {
+    @extend %cinema-container;
+    height: 100%;
+  }
+}
