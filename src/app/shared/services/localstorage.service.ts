@@ -84,6 +84,7 @@ export class LocalStorageService {
       moment()
         .subtract(1, "days")
         .format(FORMAT_DAY),
+      moment().format(FORMAT_DAY),
       moment()
         .add(1, "days")
         .format(FORMAT_DAY),
@@ -92,9 +93,6 @@ export class LocalStorageService {
         .format(FORMAT_DAY),
       moment()
         .add(3, "days")
-        .format(FORMAT_DAY),
-      moment()
-        .add(4, "days")
         .format(FORMAT_DAY)
     ];
 

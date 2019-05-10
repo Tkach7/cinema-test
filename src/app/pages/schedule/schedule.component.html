@@ -1,4 +1,11 @@
 <article class="schedule-container">
-  <section class="schedule-filters"></section>
-  <section class="schedule-list"></section>
+  <app-schedule-filter class="schedule-filters"></app-schedule-filter>
+  <span *ngIf="loading">Loading...</span>
+  <section class="schedule-list" *ngIf="!loading && !noData">
+    <app-schedule-item
+      *ngFor="let items of scheduleItems"
+      [items]="items"
+      [name]="items[0].name"
+    ></app-schedule-item>
+  </section>
 </article>

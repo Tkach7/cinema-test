@@ -2,7 +2,7 @@ export class Schedule {
   constructor(
     public id: string,
     public data: string,
-    items: ScheduleItemsByName
+    public items: ScheduleItemsByName
   ) {}
 }
 
@@ -29,5 +29,5 @@ export class ScheduleBookItem {
 }
 
 export interface ScheduleItemsByName {
-  [key: string]: ScheduleBookItem[];
+  [key: string]: ScheduleItem[];
 }

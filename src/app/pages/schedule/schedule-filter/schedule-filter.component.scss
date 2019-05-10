@@ -1,0 +1,13 @@
+:host {
+  .schedule-filter {
+    display: flex;
+
+    .schedule-filter-item > input {
+      display: none;
+    }
+  }
+
+  .schedule-filter-item + .schedule-filter-item {
+    margin-left: 0.5rem;
+  }
+}

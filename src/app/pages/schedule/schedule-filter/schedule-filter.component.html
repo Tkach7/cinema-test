@@ -1,3 +1,8 @@
-<p>
-  schedule-filter works!
-</p>
+<section class="schedule-filter" ngbRadioGroup>
+  <label class="schedule-filter-item btn-primary" ngbButtonLabel>
+    <input type="radio" ngbButton [value]="'Сегодня'" /> Сегодня
+  </label>
+  <label class="schedule-filter-item btn-primary" ngbButtonLabel>
+    <input type="radio" ngbButton [value]="'завтра'" /> Завтра
+  </label>
+</section>

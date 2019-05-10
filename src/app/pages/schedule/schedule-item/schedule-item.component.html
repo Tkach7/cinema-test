@@ -1,0 +1,14 @@
+<section class="schedule-item">
+  <div class="left">
+    <div class="schedule-item-poster">Some beautiful poster</div>
+  </div>
+  <div class="right">
+    <div class="schedule-item-name">{{ name }}</div>
+    <div class="schedule-item-sessions">
+      <div class="sessions-item" *ngFor="let item of items">
+        <div class="sessions-room">Room: {{ item.room }}</div>
+        <div class="sessions-value">{{ item.start }}</div>
+      </div>
+    </div>
+  </div>
+</section>
