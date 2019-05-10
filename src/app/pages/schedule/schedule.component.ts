@@ -12,27 +12,26 @@ import { FORMAT_DAY } from "../../shared/constants";
   templateUrl: "./schedule.component.html",
   styleUrls: ["./schedule.component.scss"]
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent {
   loading = false;
   noData = false;
   schedule: Schedule;
   scheduleItems: ScheduleItem[][];
-  date = moment().format(FORMAT_DAY);
 
   constructor(private scheduleApiService: ScheduleApiService) {}
 
-  ngOnInit() {
-    this.fetch();
-  }
-
-  fetch(): void {
+  fetch(date: string): void {
     this.loading = true;
     this.scheduleApiService
-      .getSchedule(this.date)
+      .getSchedule(date)
       .subscribe(
         this.getScheduleSucceed.bind(this),
         this.onApiError.bind(this)
       );
+  }
+
+  onUpdateDate(date: string): void {
+    this.fetch(date);
   }
 
   getScheduleSucceed(schedule: Schedule): void {

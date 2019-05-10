@@ -1,6 +1,7 @@
 :host {
   .schedule-filter {
     display: flex;
+    height: 2.5rem;
 
     .schedule-filter-item > input {
       display: none;
@@ -9,5 +10,16 @@
 
   .schedule-filter-item + .schedule-filter-item {
     margin-left: 0.5rem;
+  }
+
+  .schedule-picker {
+    margin-left: 0.5rem;
+    display: flex;
+    width: 20rem;
+
+    .picker {
+      width: 10rem;
+      margin-left: 0.5rem;
+    }
   }
 }

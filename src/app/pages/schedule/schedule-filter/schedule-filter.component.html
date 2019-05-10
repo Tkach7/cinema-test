@@ -1,8 +1,27 @@
 <section class="schedule-filter" ngbRadioGroup>
-  <label class="schedule-filter-item btn-primary" ngbButtonLabel>
-    <input type="radio" ngbButton [value]="'Сегодня'" /> Сегодня
-  </label>
-  <label class="schedule-filter-item btn-primary" ngbButtonLabel>
-    <input type="radio" ngbButton [value]="'завтра'" /> Завтра
-  </label>
+  <div class="filter-days" [(ngModel)]="selectedDay">
+    <label class="schedule-filter-item btn-primary" ngbButtonLabel>
+      <input type="radio" ngbButton [value]="today" /> Сегодня
+    </label>
+    <label class="schedule-filter-item btn-primary" ngbButtonLabel>
+      <input type="radio" ngbButton [value]="tomorow" /> Завтра
+    </label>
+  </div>
+  <div class="schedule-picker">
+    <button
+      class="btn btn-outline-secondary calendar"
+      (click)="d.toggle()"
+      type="button"
+    >
+      Select day
+    </button>
+    <input
+      class="form-control picker"
+      [placeholder]="format"
+      ngbDatepicker
+      [(ngModel)]="date"
+      (dateSelect)="onSelectedDate($event)"
+      #d="ngbDatepicker"
+    />
+  </div>
 </section>

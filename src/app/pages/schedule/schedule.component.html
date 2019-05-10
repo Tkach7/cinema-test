@@ -1,5 +1,8 @@
 <article class="schedule-container">
-  <app-schedule-filter class="schedule-filters"></app-schedule-filter>
+  <app-schedule-filter
+    class="schedule-filters"
+    (selected)="onUpdateDate($event)"
+  ></app-schedule-filter>
   <span *ngIf="loading">Loading...</span>
   <section class="schedule-list" *ngIf="!loading && !noData">
     <app-schedule-item

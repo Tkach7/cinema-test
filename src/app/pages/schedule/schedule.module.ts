@@ -5,13 +5,21 @@ import { ScheduleFilterComponent } from "./schedule-filter/schedule-filter.compo
 import { ScheduleItemComponent } from "./schedule-item/schedule-item.component";
 import {
   NgbButtonLabel,
+  NgbDatepicker,
+  NgbDatepickerModule,
   NgbRadio,
   NgbRadioGroup
 } from "@ng-bootstrap/ng-bootstrap";
 import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbDatepickerModule
+  ],
   declarations: [
     ScheduleComponent,
     ScheduleFilterComponent,
