@@ -1,7 +1,6 @@
 import { ScheduleApiModel } from "./schedule.api.interface";
 import * as Moment from "moment";
 import { getId, randomItem, randomInteger } from "../../utils";
-import { FORMAT_DAY } from "../../constants";
 
 const SESSIONS = ["10:00", "12:00", "14:00", "16:00", "18:00", "20:00"];
 const ROOMS = [1, 2, 3, 4, 5];
@@ -47,7 +46,7 @@ export const generateScheduleBook = (
   const BOOKS = [];
   schedule.ITEMS.forEach(item => {
     const ID = getId();
-    Array(randomInteger(1, 10))
+    Array(randomInteger(1, 8))
       .fill(0)
       .forEach((_, i) => {
         BOOKS.push({

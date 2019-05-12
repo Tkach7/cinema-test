@@ -37,7 +37,6 @@ export class ScheduleItemComponent implements OnInit {
     modal.result.then(
       () => {},
       (reason: ModalRoomAction) => {
-        console.log(reason);
         this.closeRoomModal.emit(reason);
       }
     );

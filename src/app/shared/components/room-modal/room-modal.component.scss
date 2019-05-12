@@ -89,10 +89,7 @@
 
       .place.taken {
         background: rgba(127, 127, 127, 0.2);
-
-        & > input {
-          user-select: none;
-        }
+        pointer-events: none;
       }
     }
 

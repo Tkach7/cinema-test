@@ -41,6 +41,41 @@ export class LocalStorageService {
       booking[item.SCHEDULE_ITEM_ID].push(item);
     });
     localStorage.setItem(BOOKING_KEY, JSON.stringify(booking));
+
+    const [id, room, start] = [
+      items[0].SCHEDULE_ITEM_ID,
+      items[0].ROOM,
+      items[0].TIME_START
+    ];
+    LocalStorageService.updateFullRoom(id, room, start);
+  }
+
+  private static updateFullRoom(
+    scheduleId: string,
+    roomNumber: number,
+    start: string
+  ) {
+    const booking = JSON.parse(localStorage.getItem(BOOKING_KEY));
+    const roomBooks = booking[scheduleId].filter(
+      b => b.ROOM === roomNumber && start === b.TIME_START
+    );
+    const room: RoomsApiModel.RoomItem = LocalStorageService.getRoom(
+      roomNumber
+    );
+    if (room.CAPACITY === roomBooks.length) {
+      const schedules = JSON.parse(localStorage.getItem(SCHEDULES_KEY));
+      const scheduleIndex = schedules.findIndex(s => s.ID === scheduleId);
+      for (let i = 0; i < schedules[scheduleIndex].ITEMS.length; i++) {
+        if (
+          schedules[scheduleIndex].ITEMS[i].TIME_START === start &&
+          schedules[scheduleIndex].ITEMS[i].ROOM === roomNumber
+        ) {
+          schedules[scheduleIndex].ITEMS[i].IS_FULL = true;
+          break;
+        }
+      }
+      localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
+    }
   }
 
   public static getBookingFromStorage(
