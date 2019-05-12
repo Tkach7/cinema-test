@@ -1,6 +1,5 @@
 @import './colors';
 
-$advanced-kpi-card-value: 300 1.7rem Roboto, sans-serif;
 $h3: 100 3rem Roboto, sans-serif;
 $h4: 300 2.1rem Roboto, sans-serif;
 $h5: 300 1.5rem Roboto, sans-serif;
@@ -8,8 +7,6 @@ $h6: 300 1.25rem Roboto, sans-serif;
 $kpi-value: 300 1.6rem Roboto, sans-serif;
 $subtitle1: 400 1rem Roboto, sans-serif;
 $subtitle2: 500 0.9rem Roboto, sans-serif;
-$card-title: 500 0.8rem Roboto, sans-serif;
-$card-title-height: 1.5rem;
 $body1: 500 1rem Roboto, sans-serif;
 $body2: 400 0.9rem Roboto, sans-serif;
 $caption: 400 0.75rem Roboto, sans-serif;
@@ -69,20 +66,6 @@ $navigation3-color: $dark-blue;
 	@include font-smoothing();
 	color: $subtitle2-color;
 	font: $subtitle2;
-}
-
-%card-title {
-	@include font-smoothing();
-	box-sizing: border-box;
-	color: $dark-gray;
-	font: $card-title;
-	height: $card-title-height;
-	max-width: 100%;
-	overflow: hidden;
-	padding: 0.25rem 0.25rem 0;
-	text-overflow: ellipsis;
-	text-transform: uppercase;
-	white-space: nowrap;
 }
 
 %body1 {

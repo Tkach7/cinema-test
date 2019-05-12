@@ -1,3 +1,4 @@
+@import "../../../../scss/vars/fonts";
 :host {
   .schedule-filter {
     display: flex;
@@ -13,13 +14,19 @@
   }
 
   .schedule-picker {
+    align-items: center;
     margin-left: 0.5rem;
     display: flex;
     width: 20rem;
 
     .picker {
-      width: 10rem;
-      margin-left: 0.5rem;
+      visibility: hidden;
+      width: 0;
+    }
+
+    .selected-day {
+      @extend %subtitle1;
+      margin-left: 1rem;
     }
   }
 }
