@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "predeploy": "ng build --prod",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "ng build --prod --base-href /cimena-test/",
+    "deploy": "gh-pages -d dist/cinema"
   },
   "homepage": "https://tkach7.github.io/cinema-test",
   "private": false,
