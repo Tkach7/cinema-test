@@ -1,0 +1,53 @@
+<article class="room-modal">
+  <span *ngIf="loading" class="loading">Loading...</span>
+  <ng-container *ngIf="!loading">
+    <div class="room-modal-title">Room №{{ data.room }}</div>
+    <div class="room-modal-info">
+      <div class="film-info">
+        <span> Film: {{ data.filmName }}</span
+        ><br />
+        <span> Time: {{ data.timeStart }}</span>
+      </div>
+      <div class="place-colors">
+        <div class="place-color-item">
+          <div class="place-color available"></div>
+          <span>– Available</span>
+        </div>
+        <div class="place-color-item">
+          <div class="place-color selected"></div>
+          <span>– Selected</span>
+        </div>
+      </div>
+    </div>
+    <div class="room-modal-places">
+      <label
+        *ngFor="let place of places"
+        class="place btn-primary"
+        [class.taken]="isTaken(place)"
+        ngbButtonLabel
+        (change)="onSelected(place)"
+      >
+        <input
+          type="checkbox"
+          ngbButton
+          [checked]="selectedPlaces.includes(place)"
+        />
+        {{ place }}
+      </label>
+    </div>
+    <div class="selected-places">
+      Your selected:
+      <span *ngFor="let p of selectedPlaces" class="selected-place"
+        >{{ p }}&nbsp;</span
+      >
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" (click)="close(modalRoomAction.Confirm)">
+        Confirm
+      </button>
+      <button class="btn btn-secondary" (click)="close(modalRoomAction.Cancel)">
+        Cancel
+      </button>
+    </div>
+  </ng-container>
+</article>

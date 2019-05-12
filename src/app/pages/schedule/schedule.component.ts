@@ -1,11 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ScheduleApiService } from "../../shared/api/schedule/schedule.api.service";
 import {
   Schedule,
   ScheduleItem
 } from "../../shared/api/schedule/schedule.api.entity";
-import * as moment from "moment";
-import { FORMAT_DAY } from "../../shared/constants";
+import { ModalRoomAction } from "../../shared/components/room-modal/room-modal.component";
 
 @Component({
   selector: "app-schedule",
@@ -46,5 +45,11 @@ export class ScheduleComponent {
   onApiError(e): void {
     this.loading = false;
     console.warn(e);
+  }
+
+  onCloseRoom(reason: ModalRoomAction) {
+    if (reason === ModalRoomAction.Confirm) {
+      this.fetch(this.schedule.date);
+    }
   }
 }

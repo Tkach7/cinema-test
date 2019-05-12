@@ -13,3 +13,5 @@ export const randomInteger = (min, max) => {
   rand = Math.round(rand);
   return rand;
 };
+
+export const range = (n: number): number[] => Array.from(Array(n).keys());

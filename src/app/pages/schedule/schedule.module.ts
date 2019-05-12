@@ -5,31 +5,36 @@ import { ScheduleFilterComponent } from "./schedule-filter/schedule-filter.compo
 import { ScheduleItemComponent } from "./schedule-item/schedule-item.component";
 import {
   NgbButtonLabel,
-  NgbDatepicker,
   NgbDatepickerModule,
   NgbRadio,
-  NgbRadioGroup
-} from "@ng-bootstrap/ng-bootstrap";
+  NgbRadioGroup,
+  NgbModalModule,
+  NgbButtonsModule, NgbTooltipModule
+} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RoomsApiService } from "../../shared/api/rooms/rooms.api.service";
+import { RoomModalComponent } from "../../shared/components/room-modal/room-modal.component";
+import { RoomModalModule } from "../../shared/components/room-modal/room-modal.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    NgbModalModule,
+    RoomModalModule,
+    NgbButtonsModule,
+    NgbTooltipModule
   ],
   declarations: [
     ScheduleComponent,
     ScheduleFilterComponent,
-    ScheduleItemComponent,
-    NgbRadio,
-    NgbButtonLabel,
-    NgbRadioGroup
+    ScheduleItemComponent
   ],
-  entryComponents: [],
+  entryComponents: [RoomModalComponent],
   exports: [ScheduleComponent],
-  providers: [ScheduleApiService]
+  providers: [ScheduleApiService, RoomsApiService]
 })
 export class ScheduleModule {}

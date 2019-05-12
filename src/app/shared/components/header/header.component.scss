@@ -1,0 +1,15 @@
+@import "../../../../scss/vars/decorations";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
+
+:host {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @extend %cinema-container;
+    text-align: center;
+    height: $header-height;
+    font: $h3;
+  }
+}

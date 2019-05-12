@@ -7,7 +7,19 @@
     <div class="schedule-item-sessions">
       <div class="sessions-item" *ngFor="let item of items">
         <div class="sessions-room">Room: {{ item.room }}</div>
-        <div class="sessions-value" [class.disabled]="item.passed">
+        <div
+          *ngIf="item.passed || item.isFull"
+          class="disabled sessions-value"
+          placement="top"
+          [ngbTooltip]="item.passed ? 'Session finished' : 'No tickets'"
+        >
+          {{ item.start }}
+        </div>
+        <div
+          *ngIf="!item.passed && !item.isFull"
+          class="sessions-value"
+          (click)="openRoom(item)"
+        >
           {{ item.start }}
         </div>
       </div>

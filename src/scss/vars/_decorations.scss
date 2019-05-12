@@ -10,3 +10,11 @@ $container-box-shadow: 0 0.05rem 0.2rem 0 #dbdbe6;
 	box-sizing: border-box;
 	padding: 1rem;
 }
+
+%loading {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}

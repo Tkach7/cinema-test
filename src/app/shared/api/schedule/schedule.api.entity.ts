@@ -1,7 +1,7 @@
 export class Schedule {
   constructor(
     public id: string,
-    public data: string,
+    public date: string,
     public items: ScheduleItemsByName
   ) {}
 }

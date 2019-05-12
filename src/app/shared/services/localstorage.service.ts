@@ -6,9 +6,11 @@ import {
   generateScheduleBook
 } from "../api/schedule/schedule.api.mock";
 import { ScheduleApiModel } from "../api/schedule/schedule.api.interface";
-import BooksApiParams = ScheduleApiModel.BooksApiParams;
 import { RoomsApiModel } from "../api/rooms/rooms.api.interface";
 import { ROOMS } from "../api/rooms/rooms.api.mock";
+import BooksApiParams = ScheduleApiModel.BooksApiParams;
+import { getId } from "../utils";
+
 const SCHEDULES_KEY = "SCHEDULES";
 const ROOMS_KEY = "ROOMS";
 const BOOKING_KEY = "BOOKING";
@@ -35,9 +37,10 @@ export class LocalStorageService {
     let booking = localStorage.getItem(BOOKING_KEY);
     booking = JSON.parse(booking);
     items.forEach(item => {
+      item.ID = getId();
       booking[item.SCHEDULE_ITEM_ID].push(item);
     });
-    localStorage.setItem(SCHEDULES_KEY, JSON.stringify(booking));
+    localStorage.setItem(BOOKING_KEY, JSON.stringify(booking));
   }
 
   public static getBookingFromStorage(
@@ -73,8 +76,8 @@ export class LocalStorageService {
   private static setMockBooking() {
     const schedules = JSON.parse(localStorage.getItem(SCHEDULES_KEY));
     const booking = schedules.reduce((stack, s) => {
-      const books = generateScheduleBook(s);
-      stack[s.ID] = books;
+      stack[s.ID] = generateScheduleBook(s);
+      return stack;
     }, {});
     localStorage.setItem(BOOKING_KEY, JSON.stringify(booking));
   }
