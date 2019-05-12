@@ -7,7 +7,9 @@
     <div class="schedule-item-sessions">
       <div class="sessions-item" *ngFor="let item of items">
         <div class="sessions-room">Room: {{ item.room }}</div>
-        <div class="sessions-value">{{ item.start }}</div>
+        <div class="sessions-value" [class.disabled]="item.passed">
+          {{ item.start }}
+        </div>
       </div>
     </div>
   </div>

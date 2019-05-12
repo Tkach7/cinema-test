@@ -14,7 +14,8 @@ export class ScheduleItem {
     public end: string,
     public room: number,
     public isPremiere: boolean,
-    public isFull: boolean
+    public isFull: boolean,
+    public passed: boolean
   ) {}
 }
 

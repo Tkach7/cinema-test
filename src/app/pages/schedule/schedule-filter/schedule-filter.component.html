@@ -1,10 +1,15 @@
-<section class="schedule-filter" ngbRadioGroup>
-  <div class="filter-days" [(ngModel)]="selectedDay">
+<section class="schedule-filter">
+  <div
+    class="filter-days"
+    [(ngModel)]="selectedDay"
+    ngbRadioGroup
+    (ngModelChange)="selected.emit(selectedDay)"
+  >
     <label class="schedule-filter-item btn-primary" ngbButtonLabel>
       <input type="radio" ngbButton [value]="today" /> Сегодня
     </label>
     <label class="schedule-filter-item btn-primary" ngbButtonLabel>
-      <input type="radio" ngbButton [value]="tomorow" /> Завтра
+      <input type="radio" ngbButton [value]="tomorrow" /> Завтра
     </label>
   </div>
   <div class="schedule-picker">
@@ -19,7 +24,7 @@
       class="form-control picker"
       [placeholder]="format"
       ngbDatepicker
-      [(ngModel)]="date"
+      [(ngModel)]="datePickerValue"
       (dateSelect)="onSelectedDate($event)"
       #d="ngbDatepicker"
     />

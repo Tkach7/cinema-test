@@ -10,6 +10,8 @@ import BooksApiParams = ScheduleApiModel.BooksApiParams;
 import { of } from "rxjs";
 import { delay } from "rxjs/operators";
 import { LocalStorageService } from "../../services/localstorage.service";
+import * as moment from "moment";
+import { FORMAT_DAY } from "../../constants";
 
 @Injectable()
 export class ScheduleApiService {
@@ -31,7 +33,12 @@ export class ScheduleApiService {
   private static mapSchedule(
     SCHEDULE: ScheduleApiModel.ScheduleModel
   ): Schedule {
-    const items = SCHEDULE.ITEMS.map(ScheduleApiService.mapItem);
+    if (!SCHEDULE) {
+      return null;
+    }
+    const items: ScheduleItem[] = SCHEDULE.ITEMS.map(
+      ScheduleApiService.mapItem.bind(null, SCHEDULE.DATA)
+    );
     const groupedByName: ScheduleItemsByName = items.reduce((acc, item) => {
       acc[item.name] = acc[item.name] ? acc[item.name].concat(item) : [item];
       return acc;
@@ -39,7 +46,15 @@ export class ScheduleApiService {
     return new Schedule(SCHEDULE.ID, SCHEDULE.DATA, groupedByName);
   }
 
-  private static mapItem(ITEM: ScheduleApiModel.ScheduleItem): ScheduleItem {
+  private static mapItem(
+    data: string,
+    ITEM: ScheduleApiModel.ScheduleItem
+  ): ScheduleItem {
+    const [h, m] = ITEM.TIME_START.split(":");
+    const itemDate = moment(data, FORMAT_DAY)
+      .hour(+h)
+      .minute(+m);
+    const passed = moment().isAfter(itemDate);
     return new ScheduleItem(
       ITEM.ID,
       ITEM.NAME,
@@ -47,7 +62,8 @@ export class ScheduleApiService {
       ITEM.TIME_END,
       ITEM.ROOM,
       ITEM.IS_PREMIERE,
-      ITEM.IS_FULL
+      ITEM.IS_FULL,
+      passed
     );
   }
   public addBooking(items: ScheduleBookItem[]) {

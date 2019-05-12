@@ -13,7 +13,9 @@ const NAMES = [
   "How to Train Your Dragon"
 ];
 
-export const generateSchedule = (DATA: string): ScheduleApiModel.ScheduleModel => {
+export const generateSchedule = (
+  DATA: string
+): ScheduleApiModel.ScheduleModel => {
   const ID = getId();
   const ITEMS = [];
   SESSIONS.forEach(session => {
@@ -37,9 +39,11 @@ export const generateSchedule = (DATA: string): ScheduleApiModel.ScheduleModel =
       });
     });
   });
-  return { ID, DATA: Moment(DATA).format(FORMAT_DAY), ITEMS };
+  return { ID, DATA, ITEMS };
 };
-export const generateScheduleBook = (schedule: ScheduleApiModel.ScheduleModel) => {
+export const generateScheduleBook = (
+  schedule: ScheduleApiModel.ScheduleModel
+) => {
   const BOOKS = [];
   schedule.ITEMS.forEach(item => {
     const ID = getId();

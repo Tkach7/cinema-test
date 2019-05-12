@@ -9,10 +9,11 @@ import * as moment from "moment";
 })
 export class ScheduleFilterComponent implements OnInit {
   format = FORMAT_DAY;
-  date = moment();
+
+  datePickerValue = moment();
 
   today = moment().format(FORMAT_DAY);
-  tomorow = moment()
+  tomorrow = moment()
     .add(1, "days")
     .format(FORMAT_DAY);
 
@@ -25,12 +26,11 @@ export class ScheduleFilterComponent implements OnInit {
   ngOnInit(): void {
     this.selected.emit(moment().format(FORMAT_DAY));
   }
-
-  onSelectedDate({ year, month, day }): void {
-    this.selected.emit(
-      `${month < 10 ? "0" + month : month}-${
-        day < 10 ? "0" + day : day
-      }-${year}`
-    ); // todo: refactor
+  onSelectedDate({ month, day }): void {
+    this.selectedDay = moment()
+      .month(month - 1)
+      .date(day)
+      .format(FORMAT_DAY);
+    this.selected.emit(this.selectedDay);
   }
 }

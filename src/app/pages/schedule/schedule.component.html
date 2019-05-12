@@ -4,6 +4,7 @@
     (selected)="onUpdateDate($event)"
   ></app-schedule-filter>
   <span *ngIf="loading">Loading...</span>
+  <span *ngIf="!loading && noData">There is no data on this date...</span>
   <section class="schedule-list" *ngIf="!loading && !noData">
     <app-schedule-item
       *ngFor="let items of scheduleItems"

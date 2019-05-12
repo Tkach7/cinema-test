@@ -1,1 +1,1 @@
-export const FORMAT_DAY = "MM-DD-YYYY";
+export const FORMAT_DAY = "DD-MM-YYYY";
