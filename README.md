@@ -1,6 +1,6 @@
 # Cinema
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+[Simple cinema demo](https://tkach7.github.io/cinema-test/schedule) 
 
 ## Development server
 
